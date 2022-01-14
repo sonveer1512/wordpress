@@ -1,0 +1,33 @@
+
+
+
+<?php while(have_posts()) : the_post(); 
+	//print_r($post);
+?>
+<section>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="rrr">
+					<h1 class="r1"><?php the_title(); ?></h1> 	
+					<div><?php the_content(); ?></div>
+					<?php $key_1_value = get_post_meta( $post->ID, 'home', true ); 
+					
+						echo $key_1_value;
+					?>
+					
+					<?php $metaimg = get_field('image');
+						//print_r(get_field('image'));
+						echo '<img src=" '.$metaimg['url'].' " />';
+					?>
+					
+					<img src="<?php echo $metaimg['url']; ?>" />
+					
+					
+					
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<?php endwhile; ?>
